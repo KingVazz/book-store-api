@@ -43,4 +43,39 @@ app.get("/users", (req, res) => {
     res.json(result);
 });
 
+// jadi dari 1 dst
+app.get("/users/:id", (req, res) => {
+    // get data dari parameter
+    let id = parseInt(req.params.id);
+
+    // get data dari database
+    let result;
+    const user = data_users.find((user) => user.id === id);
+    if (user) {
+        result = {
+        status: 200,
+        data: user,
+        };
+    }
+    res.json(result);
+});
+
+app.get("/users/:id", (req, res) => {
+    // get data dari parameter
+    let id = parseInt(req.params.id);
+
+    // get data dari database
+    let result;
+    const user = data_users.find((user) => user.id === id);
+    if (user) {
+        result = {
+        status: 200,
+        data: user,
+        };
+    } else {
+        res.status(404).json({ error: "User not found" });
+    }
+    res.json(result);
+});
+
 app.listen(port, () => console.log(`Server running on port ${port}`))
