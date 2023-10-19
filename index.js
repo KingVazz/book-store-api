@@ -31,8 +31,10 @@ app.delete('/estea', (req, res) => {
 ];
 
 app.get("/users", (req, res) => {
+    
     //mendapatkan data dari database
     const data = data_users;
+
 
     //memberikan respon json data
     let result = {
@@ -43,7 +45,8 @@ app.get("/users", (req, res) => {
     res.json(result);
 });
 
-// jadi dari 1 dst
+
+// jadi dari port 1 dst
 app.get("/users/:id", (req, res) => {
     // get data dari parameter
     let id = parseInt(req.params.id);
@@ -59,6 +62,7 @@ app.get("/users/:id", (req, res) => {
     }
     res.json(result);
 });
+
 
 app.get("/users/:id", (req, res) => {
     // get data dari parameter
@@ -77,5 +81,6 @@ app.get("/users/:id", (req, res) => {
     }
     res.json(result);
 });
+
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
